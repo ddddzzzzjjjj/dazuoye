@@ -1,0 +1,53 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:1-35:12
+	package
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:18:11-52
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:19:11-38
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:17:11-69
+	android:versionCode
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:20:11-36
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml
+	android:installLocation
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:21:11-41
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:23:3-62
+	android:name
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:23:20-60
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:24:3-64
+	android:name
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:24:20-62
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:25:3-63
+	android:name
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:25:20-61
+uses-sdk
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:27:3-71
+	android:targetSdkVersion
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:27:40-69
+	android:minSdkVersion
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:27:13-39
+application
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:28:3-34:17
+	android:allowBackup
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:29:7-33
+activity#com.google.zxing.client.android.CaptureActivity
+ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:31:5-33:11
+	android:screenOrientation
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:32:9-45
+	android:name
+		ADDED from C:\Users\86131\Desktop\BookManager\zxing\src\main\AndroidManifest.xml:31:15-77
