@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.bookmanager.admin.houtai_admin.select_reader_admin">
+    tools:context="com.example.administrator.bookmanager.admin.houtai_admin.admin_select_reader">
 
     <LinearLayout
         android:layout_width="match_parent"

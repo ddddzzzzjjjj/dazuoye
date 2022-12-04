@@ -1,116 +1,78 @@
 package com.example.administrator.bookmanager.admin.qiantai_admin;
-
+/*
+个人借书表
+ */
 
 import android.content.ContentValues;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.bookmanager.R;
 import com.example.administrator.bookmanager.admin.databaseHelp;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import java.util.List;
+import java.util.Map;
 
 public class borrowActivity extends AppCompatActivity {
-    private TextView bid,bname,bauthor,bprice;
-    private Button borrow_bt,collect_bt;
-    private String str;
-    int id;
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    private ListView listView;
+    private String bookid, bookname, bookauthor, booktime,Rorname;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_borrow);
-        /*
-        获取当前系统时间
-        用作借书日期time
-         */
-        SimpleDateFormat formatter = new SimpleDateFormat    ("yyyy年MM月dd日    HH:mm:ss     ");
-        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-        str = formatter.format(curDate);
-       /* SharedPreferences.Editor editor=getSharedPreferences("data",MODE_PRIVATE).edit();
-        editor.putString("time",str);
-        editor.apply();*/
+        setContentView(R.layout.activity_person_borrow);
+        listView = (ListView) findViewById(R.id.show_borrow);
+        final databaseHelp help = new databaseHelp(getApplicationContext());
+        SharedPreferences perf = getSharedPreferences("data", MODE_PRIVATE);
 
-        bid=(TextView)findViewById(R.id.bookbid);
-        bname=(TextView)findViewById(R.id.bookbname);
-        bauthor=(TextView)findViewById(R.id.bookbauthor);
-        bprice=(TextView)findViewById(R.id.bookbprice);
-        Bundle bundle=this.getIntent().getExtras();
-        id=bundle.getInt("id") + 1;
-        final databaseHelp help=new databaseHelp(getApplicationContext());
-        Cursor cursor=help.querybookinfoid(id);
-        Log.i("cursor", "onCreate: " +cursor.getCount());
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            bid.setText(cursor.getString(cursor.getColumnIndex("bookid")));
-            bname.setText(cursor.getString(cursor.getColumnIndex("name")));
-            bauthor.setText(cursor.getString(cursor.getColumnIndex("writer")));
-            bprice.setText(cursor.getString(cursor.getColumnIndex("price")));
-        }
-        borrow_bt=(Button)findViewById(R.id.borroe_bt);
-        borrow_bt.setOnClickListener(new View.OnClickListener() {
+        username = perf.getString("users", "");//获得当前用户名称
+        //根据用户查询自己的借阅信息
+        List<Map<String, Object>> data = help.queryborrow(username);
+        SimpleAdapter adapter = new SimpleAdapter(
+                borrowActivity.this, data, R.layout.borrow_item,
+                new String[]{"Borname", "Bookid", "bookname",
+                        "bookauthor", "nowtime"},
+                new int[]{R.id.Borname, R.id.Bbookid,
+                        R.id.Bbookname, R.id.Bbookauthor,
+                        R.id.Bnowtimae});
+        listView.setAdapter(adapter);
+        //通过id查询图书表里的所有信息，用bundle进行数据交互
+
+        //进行还书,跳转到信息界面
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                //将书籍信息插入借阅表中
-                //借书日期
-                SharedPreferences perf=getSharedPreferences("data",MODE_PRIVATE);
-               // String datetime=perf.getString("time","");//获得当前系统时间
-                String username=perf.getString("users","");//获得当前用户名称
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                String strbid=bid.getText().toString();
-                String strbname=bname.getText().toString();
-                String strbauthor=bauthor.getText().toString();
-                int intbid=Integer.parseInt(strbid);
+                View curr = adapterView.getChildAt((int)l);
+                TextView tv = curr.findViewById(R.id.Bbookname);
+                TextView bookname = curr.findViewById(R.id.Bbookname);
+                TextView bookID = curr.findViewById(R.id.Bbookid);
+                TextView author = curr.findViewById(R.id.Bbookauthor);
+                TextView time = curr.findViewById(R.id.Bnowtimae);
+                help.delborrowbyname(tv.getText().toString());
+                Toast.makeText(borrowActivity.this, "还书成功", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(borrowActivity.this, borrowActivity.class);
+//                startActivity(intent);
                 ContentValues values=new ContentValues();
-                values.put("Bookid",intbid);
-                values.put("bookname",strbname);
-                values.put("bookauthor",strbauthor);
+                values.put("Bookid",bookID.getText().toString());
+                values.put("bookname",bookname.getText().toString());
+                values.put("bookauthor",author.getText().toString());
                 values.put("Borname",username);
-                values.put("nowtime",str);
-                help.insertorrowo(values);
-              //获取当前用户
-                Toast.makeText(borrowActivity.this,"借书成功",Toast.LENGTH_LONG).show();
+                values.put("nowtime",time.getText().toString());
+                help.insertpay(values);
+                finish();
+
+
             }
         });
-        collect_bt=(Button)findViewById(R.id.collect_bt);
-        collect_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //将书籍信息插入借阅表中
-                //借书日期
-                SharedPreferences perf=getSharedPreferences("data",MODE_PRIVATE);
-                // String datetime=perf.getString("time","");//获得当前系统时间
-                String username=perf.getString("users","");//获得当前用户名称
 
-                String strbid=bid.getText().toString();
-                String strbname=bname.getText().toString();
-                String strbauthor=bauthor.getText().toString();
-                int intbid=Integer.parseInt(strbid);
-                ContentValues values=new ContentValues();
-                values.put("Bookid",intbid);
-                values.put("bookname",strbname);
-                values.put("bookauthor",strbauthor);
-                values.put("Borname",username);
-                values.put("nowtime",str);
-                help.insertocollect(values);
-                //获取当前用户
-                Toast.makeText(borrowActivity.this,"收藏成功",Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
-
-
 }

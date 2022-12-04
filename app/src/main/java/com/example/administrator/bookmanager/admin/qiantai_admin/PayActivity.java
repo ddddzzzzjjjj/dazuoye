@@ -3,11 +3,9 @@ package com.example.administrator.bookmanager.admin.qiantai_admin;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -75,7 +73,7 @@ private TextView pid,pnname,pauthor,ptime;
 */
 
                 help.delborrow(id);
-                Intent intent=new Intent(PayActivity.this,person_borrow.class);
+                Intent intent=new Intent(PayActivity.this, borrowActivity.class);
                 startActivity(intent);
                 ActivityCollector.finishAll();
             }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.example.administrator.bookmanager.admin.qiantai_admin.borrowActivity">
+    tools:context="com.example.administrator.bookmanager.admin.qiantai_admin.messageActivity">
 
     <LinearLayout
         android:layout_marginTop="50dp"

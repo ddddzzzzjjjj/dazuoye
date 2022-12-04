@@ -13,7 +13,7 @@ import com.example.administrator.bookmanager.admin.databaseHelp;
  * 查找读者的界面
  *
  */
-public class select_reader_admin extends AppCompatActivity {
+public class admin_select_reader extends AppCompatActivity {
 private ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

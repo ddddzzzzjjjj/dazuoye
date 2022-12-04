@@ -1,44 +1,29 @@
 package com.example.administrator.bookmanager.admin.qiantai_admin;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.administrator.bookmanager.R;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import com.example.administrator.bookmanager.admin.databaseHelp;
-import com.example.administrator.bookmanager.admin.houtai_admin.admin_content;
-import com.example.administrator.bookmanager.admin.houtai_admin.admin_update_reader;
 
 public class contentActivity extends AppCompatActivity implements View.OnClickListener {
     private DrawerLayout drawerLayout;
@@ -75,7 +60,7 @@ public class contentActivity extends AppCompatActivity implements View.OnClickLi
                         break;
                     case R.id.jieyue:
                         //跳转到个人借书的页面
-                        Intent intent = new Intent(contentActivity.this, person_borrow.class);
+                        Intent intent = new Intent(contentActivity.this, borrowActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.updateInfo:
@@ -123,7 +108,7 @@ public class contentActivity extends AppCompatActivity implements View.OnClickLi
                 int i = position + 1;
 //                点击1的item 提示点击了第几个item
 //                setTitle("点击" + i + "的item");
-                Intent intent = new Intent(contentActivity.this, borrowActivity.class);
+                Intent intent = new Intent(contentActivity.this, messageActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", position);
                 intent.putExtras(bundle);

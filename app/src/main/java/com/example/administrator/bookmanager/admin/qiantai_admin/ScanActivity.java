@@ -1,6 +1,5 @@
 package com.example.administrator.bookmanager.admin.qiantai_admin;
 /*
-实现扫码功能，zxing包是 new file import moudle ，然后在app build grade的文件中田家庵    compile project(path: ':zxing')
  */
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

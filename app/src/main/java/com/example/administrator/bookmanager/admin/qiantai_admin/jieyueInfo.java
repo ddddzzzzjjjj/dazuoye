@@ -1,7 +1,6 @@
 package com.example.administrator.bookmanager.admin.qiantai_admin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -22,7 +21,7 @@ private ImageButton borrow,pay;
                 /*
                 跳转到我的借书信息页面
                  */
-                Intent intent=new Intent(jieyueInfo.this,person_borrow.class);
+                Intent intent=new Intent(jieyueInfo.this, borrowActivity.class);
                 startActivity(intent);
                 ActivityCollector.finishAll();
             }

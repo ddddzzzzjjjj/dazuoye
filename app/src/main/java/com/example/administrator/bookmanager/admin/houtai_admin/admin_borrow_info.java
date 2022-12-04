@@ -7,7 +7,6 @@ import android.widget.SimpleAdapter;
 
 import com.example.administrator.bookmanager.R;
 import com.example.administrator.bookmanager.admin.databaseHelp;
-import com.example.administrator.bookmanager.admin.qiantai_admin.person_borrow;
 
 import java.util.List;
 import java.util.Map;
